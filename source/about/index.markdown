@@ -6,4 +6,8 @@ comments: false
 sharing: false
 footer: false
 ---
-My name is Iain! 
+My name is Iain Cambridge! I'm a software developer living in Manchester.
+
+Things I am in to computers, fitness, health, and fun stuff. 
+
+As you may tell from my domain name, I try not to be very serious. If you find anything on here slighly interesting - result!
