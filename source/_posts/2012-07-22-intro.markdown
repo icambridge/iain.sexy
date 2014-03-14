@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Sexy!"
+date: 2014-03-13 08:23
+comments: true
+categories: "self"
+---
+Testing the new sexy domain!
