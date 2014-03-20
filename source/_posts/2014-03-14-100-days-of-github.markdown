@@ -3,7 +3,7 @@ layout: post
 title: "100 days of github"
 date: 2014-03-14 19:42:49 +0000
 comments: true
-categories: 
+categories: [development, random]
 ---
 So I've decided to I need to get back to programming more things in my spare time. One way to kinda force this on myself is to attempt to do 100 days of github contributions. 
 
