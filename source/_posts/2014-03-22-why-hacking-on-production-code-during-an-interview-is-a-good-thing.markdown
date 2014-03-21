@@ -7,7 +7,7 @@ categories: [development, random]
 ---
 *Wrote this ages ago and just found it and figured I should post it.*
 
-A while back I saw a blog post ([http://hownottohireadeveloper.blogspot.co.uk/2013/11/no-i-will-not-hack-on-your-codebase-for-free.html](link)) saying that he would never hack on a production code base during the interview. Since he was not getting paid for it. Well I strongly disagree with that, both from an interviewee and an interviewer point of view.
+A while back I saw a blog post ([link](http://hownottohireadeveloper.blogspot.co.uk/2013/11/no-i-will-not-hack-on-your-codebase-for-free.html)) saying that he would never hack on a production code base during the interview. Since he was not getting paid for it. Well I strongly disagree with that, both from an interviewee and an interviewer point of view.
 
 <!-- more -->
 
@@ -33,7 +33,7 @@ But hacking on their codebase gives me something very important. A chance to see
 
 In the post it was suggested that’ll he’ll hack on something open source and give something back. While in theory this totally awesome, in practice it seems like something that isn’t practical. Such was what open source project? What you going to do in that open source project? While there is always stuff needing done in open source projects, some are really hard to contribute to (WordPress for example) others don’t really have a list of stuff that they need done feature wise.
 
-One place I interviewed at ([http://parrall.ax](Parallax)) had another way, they asked me in for a hack day and asked if I had anything I wanted to code as a side project and then had me code that in their framework of choice. Then it was out for beers afterwards, pretty good interview. Turned out to be a kickass company, who I would readily suggest to anyone looking for digital agency or a job. 
+One place I interviewed at ([Parallax](http://parrall.ax)) had another way, they asked me in for a hack day and asked if I had anything I wanted to code as a side project and then had me code that in their framework of choice. Then it was out for beers afterwards, pretty good interview. Turned out to be a kickass company, who I would readily suggest to anyone looking for digital agency or a job. 
 
 # Conclusion
 
