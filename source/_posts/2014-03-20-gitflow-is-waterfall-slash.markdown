@@ -9,6 +9,8 @@ For those not in the know, git-flow is technically a tool for git which allows f
 
 **Disclaimer**: *This isn't meant to be a criticism of either the branching model or the waterfall process. It's more me pointing out that it doesn't really fit in with what I consider to be an agile development process if used fully as described. Not to say that implementing some of it can't fit in with an agile development process. Basically I'm trying not to be offensive to anyone. (Also it should be noted that listening to me may result in you looking stupid. You have been warned.)*
 
+<!-- more -->
+
 ## Git flow summary
 
 So a quick run through of the branch model if you haven't read [the blog post about it](http://nvie.com/posts/a-successful-git-branching-model/). You basically branch each feature off into it's own **feature branch** and develop that separately from other features. When a feature is finished you then merge it into the **develop** branch. Once you feel you have enough features in **develop** you then merge it in to a **release branch**. At which point you only test and apply bug fixes to that branch and once you're ready to deploy it you then merge it to **master**. Which is to be an exact copy of production. You then tag it once it goes into **master**. Once it's in **master**, and you need to fix some urgent bug in production you would create a **hotfix branch**. Any non urgent bug would be fixed in a **bug branch** that is branched off from **develop**.
