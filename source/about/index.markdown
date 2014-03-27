@@ -6,7 +6,7 @@ comments: false
 sharing: false
 footer: false
 ---
-My name is Iain Cambridge! I'm a I'm a professional Variable Declarer[[1]](#cite-1) living in Manchester.
+My name is Iain Cambridge! I'm a professional Variable Declarer[[1]](#cite-1) living in Manchester.
 
 
 Things I am in to computers, fitness, health, and fun stuff. 
