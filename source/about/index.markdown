@@ -6,8 +6,12 @@ comments: false
 sharing: false
 footer: false
 ---
-My name is Iain Cambridge! I'm a software developer living in Manchester.
+My name is Iain Cambridge! I'm a professional Variable Declarer[[1]](#cite-1) living in Manchester.
+
 
 Things I am in to computers, fitness, health, and fun stuff. 
 
 As you may tell from my domain name, I try not to be very serious. If you find anything on here slighly interesting - result!
+
+<a name="cite-1"></a>
+[1] [https://twitter.com/iamdevloper/status/448918439793815552](https://twitter.com/iamdevloper/status/448918439793815552) 
