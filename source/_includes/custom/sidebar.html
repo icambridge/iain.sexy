@@ -34,10 +34,10 @@
   </li>
 </ul>
 
-<section>
-  <h1>Category Cloud</h1>
-    <span id="tag-cloud">{% category_cloud counter:true %}</span>
-</section>
+<aside id="category-cloud">
+  <h4>Category Cloud</h4>
+  <span id="tag-cloud">{% category_cloud counter:true %}</span>
+</aside>
 
 {% if site.simple_search %}
 <form action="{{ site.simple_search }}" method="get">
