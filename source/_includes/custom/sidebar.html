@@ -34,6 +34,11 @@
   </li>
 </ul>
 
+<section>
+  <h1>Category Cloud</h1>
+    <span id="tag-cloud">{% category_cloud counter:true %}</span>
+</section>
+
 {% if site.simple_search %}
 <form action="{{ site.simple_search }}" method="get">
   <fieldset role="search">
@@ -43,7 +48,6 @@
 </form>
 {% endif %}
 
-{% category_list [counter:true] %}
 
 <!-- Octopress Love -->
 <aside id="octopress_linkback">
