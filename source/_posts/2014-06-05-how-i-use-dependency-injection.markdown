@@ -8,8 +8,9 @@ categories: [development, theory]
 My views on how to implement dependency injection
 =================================================
 
-I've been thinking about dependency injection a lot recently and about the best way to do it in a clean manner. I recently changed how I was injecting some dependencies, at code review I was asked why so I figured I would write a blog fully stating my current views on how to implement Dependency Injection.
+I've been thinking about dependency injection a lot recently and the best way to do it in a clean manner. I recently changed how I was injecting some dependencies, at code review I was asked why. So I figured I would write a blog post fully stating my current views on how to implement Dependency Injection.
 
+<!-- more -->
 There are three main ways of injecting a single dependency, as well as what I would consider two ways of injecting multiple dependencies these are also known as patterns. Each with their own use cases.
 
 # Single Dependency
@@ -38,8 +39,7 @@ The setter method is when you use a setter to set the dependency after the objec
 
 Use case for this a dependency on a database connection object in a model. You may want to change databases on a multi tennent application depending on what tennet you're using.
 
-Another use case for the setter method is if you want to use interfaces to show that it has that dependency. For example the ContainerAware interface in the Symfony2. This allows you to give a class multiple dependencies.
-
+Another use case for the setter method is if you want to use interfaces to show that the object has that dependency. For example the ContainerAware interface in the Symfony2. This allows you to give a class multiple dependencies.
 
 {% gist fa0cd7160709ac6b6218 Setter.php %}
 
