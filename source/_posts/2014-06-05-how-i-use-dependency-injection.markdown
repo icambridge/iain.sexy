@@ -29,27 +29,8 @@ The constructor method of injecting dependencies is when you pass the dependency
 
 So use case, an email sender dependency. It's very unlikely that you're going to want to change how you send emails.
 
-```php
-<?php
 
-class Notify
-{
-  /**
-   * @var SenderInterface
-   */
-  protected $sender;
-
-  public function __construct(SenderInterface $sender)
-  {
-    $this->sender = $sender;
-  }
-
-  public function email($message)
-  {
-    $this->sender->send($message);
-  }
-}
-```
+{% gist fa0cd7160709ac6b6218 Constructor.php %}
 
 # Setter
 
@@ -60,27 +41,7 @@ Use case for this a dependency on a database connection object in a model. You m
 Another use case for the setter method is if you want to use interfaces to show that it has that dependency. For example the ContainerAware interface in the Symfony2. This allows you to give a class multiple dependencies.
 
 
-```php
-<?php
-
-class ExampleModel
-{
-  /**
-   * @var ConnectionInterface
-   */
-  protected $connection;
-
-  public function setConnection(ConnectionInterface $connection)
-  {
-    $this->connection = $connection;
-  }
-
-  public function getAll()
-  {
-    return $this->connection->query("SELECT * FROM `table`");
-  }
-}
-```
+{% gist fa0cd7160709ac6b6218 Setter.php %}
 
 # Method
 
@@ -88,76 +49,13 @@ The method injection is when you injected it into the method you want to use it 
 
 Use case for this would be a date object in a calendar object. Where you would want to use the same object for multiple dates.
 
-```php
-<?php
-
-class CalendarDay
-{
-  // ... pretend there is a dependency injection for a database connection.
-  public function getDaySchedule(DateTimeInterface $datetime)
-  {
-    $date = $datetime->format("Y-m-d");
-
-    return $this->connection->prepare(
-      "SELECT * FROM `days` WHERE date = ?", $date
-    );
-  }
-}
-```
+{% gist fa0cd7160709ac6b6218 method.php %}
 
 # Service Container
 
 Service container is when you store you dependencies in an object and then pass that around. This allows you to make all your dependencies easily available wihtout having to worry about injecting them individually.
 
-```php
-<?php
-
-interface ContainerInterface
-{
-  public function get($name);
-
-  public function set($name, $service);
-}
-
-class Container implements ContainerInterface
-{
-  protected $services = [];
-
-  public function get($name)
-  {
-    if (!isset($this->services[$name])) {
-      return;
-    }
-
-    return $this->services[$name];
-  }
-
-  public function set($name, $service)
-  {
-    $this->services[$name] = $service;
-  }
-}
-
-class Controller
-{
-  /**
-   * @var ContainerInterface
-   */
-  protected $container;
-
-  public function setContainer(ContainerInterface $container)
-  {
-    $this->container = $container;
-  }
-
-  public function indexAction()
-  {
-    $render = $this->container->get("render");
-
-    return $render->display("index");
-  }
-}
-```
+{% gist fa0cd7160709ac6b6218 container.php %}
 
 # Factory
 
@@ -167,78 +65,12 @@ This is good when you need to build up a dependency. For example using an entity
 
 Here is a sample of the code without a factory.
 
-```php
-<?php
-
-class Entity
-{
-}
-
-class Model
-{
-  /**
-   * @var Entity
-   */
-  protected $entity;
-
-  public function __construct(Entity $entity)
-  {
-    $this->entity = clone $entity;
-  }
-
-  public function getById($id)
-  {
-    $data = ['id' => 1];
-    $entity = clone $this->entity;
-    $entity->setData($data);
-    return $entity;
-  }
-}
-```
+{% gist fa0cd7160709ac6b6218 factory-without.php %}
 
 With the factory.
 
 
-```php
-<?php
-
-class Entity
-{
-}
-
-interface EntityFactoryInterface
-{
-  public function getEntity($data);
-}
-
-class EntityFactory implements EntityFactoryInterface
-{
-  public function getEntity($data)
-  {
-    return new Entity($data);
-  }
-}
-
-class Model
-{
-  /**
-   * @var EntityFactoryInterface
-   */
-  protected $factory;
-
-  public function __construct(EntityFactory $factory)
-  {
-    $this->factory = $factory;
-  }
-
-  public function getById($id)
-  {
-    $data = ['id' => 1];
-    $entity = $this->factory->getEntity($data);
-    return $entity;
-  }
-}
-```
+{% gist fa0cd7160709ac6b6218 factory-with.php %}
 
 # Conclusion
 
