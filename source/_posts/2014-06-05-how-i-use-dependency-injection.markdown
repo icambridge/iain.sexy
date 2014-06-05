@@ -57,6 +57,9 @@ The setter method is when you use a setter to set the dependency after the objec
 
 Use case for this a dependency on a database connection object in a model. You may want to change databases on a multi tennent application depending on what tennet you're using.
 
+Another use case for the setter method is if you want to use interfaces to show that it has that dependency. For example the ContainerAware interface in the Symfony2. This allows you to give a class multiple dependencies.
+
+
 ```php
 <?php
 
@@ -236,3 +239,7 @@ class Model
   }
 }
 ```
+
+# Conclusion
+
+So this is my current opinion on how to implement dependency injection and the different use cases. This will most likely evolve over time as I learn new things.
