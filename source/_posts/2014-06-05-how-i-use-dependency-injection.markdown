@@ -5,9 +5,6 @@ date: 2014-06-05 20:39:14 -0400
 comments: true
 categories: [development, theory]
 ---
-My views on how to implement dependency injection
-=================================================
-
 I've been thinking about dependency injection a lot recently and the best way to do it in a clean manner. I recently changed how I was injecting some dependencies, at code review I was asked why. So I figured I would write a blog post fully stating my current views on how to implement Dependency Injection.
 
 <!-- more -->
