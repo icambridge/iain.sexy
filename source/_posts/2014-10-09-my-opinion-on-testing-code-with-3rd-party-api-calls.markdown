@@ -26,7 +26,7 @@ So here is my plan of action:
 * Write integration tests that mocks the API
 * Write smoke test the API
 
-The idea here is again we allow unit testing by wrapping and mocking. Then with the integration tests we ensure all the code within our application even 3rd party code all integrate together and that everything goes well when the API returns what we expect. Then we smoke test the API to ensure it hasn't changed and all works the way we expect it to.
+The idea here is again we allow unit testing by wrapping and mocking. Then with the integration tests we ensure all the code within our application, even 3rd party code all integrate together and that everything goes well when the API returns what we expect. Then we smoke test the API to ensure it hasn't changed and all works the way we expect it to.
 
 # Reason behind my approach
 
