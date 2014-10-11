@@ -7,6 +7,7 @@ categories: [development, theory]
 ---
 I've recently had a discussion about how I would go about testing code that makes calls to a remote third party API. It seems my way of thinking isn't the same as most others. So I figured I would write out my thoughts and explanation behind why I would go for this route.
 
+<!-- more -->
 # Others peoples approach
 
 So first I want to explain other peoples thought patterns seem to be. It goes like:
