@@ -3,7 +3,7 @@ layout: post
 title: "Hack: Types"
 date: 2014-11-21 12:23
 comments: true
-categories: [development, hack  hacklang]
+categories: [development, hack, hacklang]
 ---
 Facebook's Hack bring lots of features that a lot of other programming languages get to take advantage of. One of major advantages of Hack over PHP is a typing system. So here's a quick run over of the typing system as I understand it.
 
