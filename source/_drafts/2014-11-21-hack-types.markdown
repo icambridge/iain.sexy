@@ -11,9 +11,47 @@ Facebook's Hack bring lots of features that a lot of other programming languages
 
 ## Annotate
 
+Annotating when you define which type is going to be used. You can type the follow:
+
+* function arguments
+* function return
+* class variable
+* constants
+
+To define the types in function arguments you just put the type before the variable name for the argument.
 
 ```php
 <?hh
+
+function example(TypeOne $typeOne, int $anInteger){}
+
+```
+
+To define the return type you just put `: type` in between the function definition and the function body.
+
+```php
+<?hh
+
+function returnsTrue(): bool { return true; }
+```
+
+Constants you just put the type in between the `const` keyword and the constant name.
+
+```php
+<?hh
+
+const int NUMBER_NINE = 9;
+```
+
+Class variables you just put the type in between the scope keyword and the variable name.
+
+```php
+<?hh
+
+class Example {
+  private int $numberNine = 9;
+}
+
 ```
 
 ## List of basic types
@@ -44,6 +82,8 @@ Other basic types
 * resource -
 * closure - syntax `(function(typeOne, typeTwo, ...): returnType)`
 * tuples - syntax `tuple(typeOne, typeTwo)`
+
+A full list can be found in [hack annotations docs](http://docs.hhvm.com/manual/en/hack.annotations.usingtypes.php).
 
 ## Generics
 
