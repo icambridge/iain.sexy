@@ -9,9 +9,9 @@ Facebook's Hack bring lots of features that a lot of other programming languages
 
 <!-- more -->
 
-List of basic types
+## List of basic types
 
-Primitive, one most basic types that are used in most programming languages.
+Primitive are one most basic types that are used in most programming languages.
 
 * string
 * int - Integer
@@ -19,11 +19,11 @@ Primitive, one most basic types that are used in most programming languages.
 * bool - Boolean (True or False)
 * array
 
-Primitive Unions, types that can be used to describe other Primitive types that go together.
+Primitive Unions are types that can be used to describe other Primitive types that go together.
 * num - integer or float
 * arraykey - string or integer
 
-Array types, to define an array type you define an array then you use less than and greater than to surround the type that array is going to contain. If you want to define what kind of key is used you put that in the that type and the value type seperated by a comma.
+Arrays while being a primitive type can be expanded to show what type of data they hold. You can also define the array key type. Instead of typing arrays like this you may want to look at using collections.
 
 * array<string> - An array of strings
 * array<string,int> - An array of integers indexed by a string
@@ -34,3 +34,11 @@ Array types, to define an array type you define an array then you use less than 
 ```php
 <?hh
 ```
+
+## Union Types
+
+## Overriding return type signature
+
+## Generics
+
+## Type Aliases
