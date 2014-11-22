@@ -115,4 +115,8 @@ class Constraint
 
 ## Overriding return type signature
 
+When you extend a class you are able to override the return type for methods you override. However the type you use must be a child type of the orignal type.
+
+So say you originally typed it `Foo`. You couldn't then change the type to `bool`. As that's not a compatable type of `Foo`. However if you created a child class of `Foo` called `Fooable` you would be able to use that as a type. So your code still actually follows the orignal return signature it's just more detailed.
+
 ## Type Aliases
