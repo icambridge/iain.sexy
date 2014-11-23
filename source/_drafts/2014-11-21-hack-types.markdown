@@ -11,14 +11,14 @@ Facebook's Hack bring lots of features that a lot of other programming languages
 
 ## Annotate
 
-Annotating when you define which type is going to be used. You can type the follow:
+Annotating is when you define which type is going to be used. You can type the following:
 
 * function arguments
 * function return
 * class variable
 * constants
 
-To define the types in function arguments you just put the type before the variable name for the argument.
+For function arguments you just put the type before the variable name for the argument.
 
 ```php
 <?hh
@@ -27,7 +27,7 @@ function example(TypeOne $typeOne, int $anInteger){}
 
 ```
 
-To define the return type you just put `: type` in between the function definition and the function body.
+For the return type you just put `: type` in between the function definition and the function body.
 
 ```php
 <?hh
@@ -35,7 +35,7 @@ To define the return type you just put `: type` in between the function definiti
 function returnsTrue(): bool { return true; }
 ```
 
-Constants you just put the type in between the `const` keyword and the constant name.
+For constants you just put the type in between the `const` keyword and the constant name.
 
 ```php
 <?hh
@@ -43,7 +43,7 @@ Constants you just put the type in between the `const` keyword and the constant 
 const int NUMBER_NINE = 9;
 ```
 
-Class variables you just put the type in between the scope keyword and the variable name.
+For class variables you just put the type in between the scope keyword and the variable name.
 
 ```php
 <?hh
@@ -79,9 +79,9 @@ Other basic types
 
 * `mixed` - Will take anything
 * `void` - Nothing it means there is no type, this is generally used
-* `resource` 
-* closure - syntax `(function(typeOne, typeTwo, ...): returnType)`
-* tuples - syntax `tuple(typeOne, typeTwo)`
+* `resource` - A resource such as filepointer, curl resources, etc.
+* `(function(typeOne, typeTwo, ...): returnType)` - closure
+* `tuple(typeOne, typeTwo)` - tuples
 
 A full list can be found in [hack annotations docs](http://docs.hhvm.com/manual/en/hack.annotations.usingtypes.php).
 
@@ -117,4 +117,4 @@ class Constraint
 
 When you extend a class you are able to override the return type for methods you override. However the new type must be compatible with the original type. So in other word the type must be a child type of the original type.
 
-So say you originally typed it `Foo` you couldn't then change the type to `bool`. As that's not a compatable type of `Foo`. However if you created a child class of `Foo` called `Fooable` you would be able to use that as a type. So your code still actually follows the orignal return signature it's just more detailed.
+So say you originally typed it `Foo` you couldn't then change the type to `bool`. As that's not a compatible type of `Foo`. However if you created a child class of `Foo` called `Fooable` you would be able to use that as a type. So your code still actually follows the orignal return signature it's just more detailed.
