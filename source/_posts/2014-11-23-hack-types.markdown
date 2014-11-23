@@ -20,39 +20,21 @@ Annotating is when you define which type is going to be used. You can type the f
 
 For function arguments you just put the type before the variable name for the argument.
 
-```php
-<?hh
-
-function example(TypeOne $typeOne, int $anInteger){}
-
-```
+{% gist 26159043a232e7206b40 function.hh %}
 
 For the return type you just put `: type` in between the function definition and the function body.
 
-```php
-<?hh
-
-function returnsTrue(): bool { return true; }
-```
+{% gist 26159043a232e7206b40 return.hh %}
 
 For constants you just put the type in between the `const` keyword and the constant name.
 
-```php
-<?hh
 
-const int NUMBER_NINE = 9;
-```
+{% gist 26159043a232e7206b40 dd.hh %}
 
 For class variables you just put the type in between the scope keyword and the variable name.
 
-```php
-<?hh
 
-class Example {
-  private int $numberNine = 9;
-}
-
-```
+{% gist 26159043a232e7206b40 class.hh %}
 
 ## List of basic types
 
@@ -91,27 +73,7 @@ Sometimes you want your code to work with any type. In those cases we can use ty
 
 When naming it you should remember can't use the name of a type that already exists. It's a general rule of thumb that you start your generic type with `T` and for real simple use cases `T` alone is fine. With collections it's advised to use `Tk` for the key and `Tv` for the value.
 
-```php
-<?hh
-
-namespace Examples;
-
-class Value<T>
-{
-  public function __construct(private T $value) {}
-
-  public function get(): T {
-    return $this->value;
-  }
-}
-
-class Constraint
-{
-    public function isEqual<T>(T $valueOne, T $valueTwo) {
-      return ($valueOne == $valueTwo);
-    }
-}
-```
+{% gist 26159043a232e7206b40 generics.hh %}
 
 ## Overriding return type signature
 
