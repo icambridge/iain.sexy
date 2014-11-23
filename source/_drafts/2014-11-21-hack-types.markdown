@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hack: Types"
-date: 2014-11-22 12:23
+date: 2014-11-23 12:23
 comments: true
 categories: [development, hack, hacklang]
 ---
