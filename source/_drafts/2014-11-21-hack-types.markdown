@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hack: Types"
-date: 2014-11-21 12:23
+date: 2014-11-22 12:23
 comments: true
 categories: [development, hack, hacklang]
 ---
@@ -58,28 +58,28 @@ class Example {
 
 Primitive are one most basic types that are used in most programming languages.
 
-* string
-* int - Integer
-* float - Floating point
-* bool - Boolean (True or False)
-* array
+* `string`
+* `int` - Integer
+* `float` - Floating point
+* `bool` - Boolean (True or False)
+* `array`
 
 Primitive Unions are types that can be used to describe other Primitive types that go together.
-* num - integer or float
-* arraykey - string or integer
+* `num` - integer or float
+* `arraykey` - string or integer
 
 Arrays while being a primitive type can be expanded to show what type of data they hold. You can also define the array key type. Instead of typing arrays like this you may want to look at using collections.
 
-* array<string> - An array of strings
-* array<string,int> - An array of integers indexed by a string
+* `array<string>` - An array of strings
+* `array<string,int>`  - An array of integers indexed by a string
 
 Classes and interfaces, if a class or interface exists in the code that's being executed then it's a type that you can use for type annotations.
 
 Other basic types
 
-* mixed - Will take anything
-* void - Nothing it means there is no type, this is generally used
-* resource -
+* `mixed` - Will take anything
+* `void` - Nothing it means there is no type, this is generally used
+* `resource` 
 * closure - syntax `(function(typeOne, typeTwo, ...): returnType)`
 * tuples - syntax `tuple(typeOne, typeTwo)`
 
@@ -101,7 +101,7 @@ class Value<T>
   public function __construct(private T $value) {}
 
   public function get(): T {
-    return $this->private;
+    return $this->value;
   }
 }
 
@@ -115,8 +115,6 @@ class Constraint
 
 ## Overriding return type signature
 
-When you extend a class you are able to override the return type for methods you override. However the type you use must be a child type of the orignal type.
+When you extend a class you are able to override the return type for methods you override. However the new type must be compatible with the original type. So in other word the type must be a child type of the original type.
 
-So say you originally typed it `Foo`. You couldn't then change the type to `bool`. As that's not a compatable type of `Foo`. However if you created a child class of `Foo` called `Fooable` you would be able to use that as a type. So your code still actually follows the orignal return signature it's just more detailed.
-
-## Type Aliases
+So say you originally typed it `Foo` you couldn't then change the type to `bool`. As that's not a compatable type of `Foo`. However if you created a child class of `Foo` called `Fooable` you would be able to use that as a type. So your code still actually follows the orignal return signature it's just more detailed.
