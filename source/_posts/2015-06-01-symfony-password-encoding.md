@@ -13,14 +13,9 @@ The encoder factory is where you get your password encoders from. You pass in a 
 
 When fetching an encoder you can either pass in a User entity or you can pass in the string of the class you want to find the encoder for. This behavior can be leaveraged so you define encoders with ids that aren't class named and then just pass in the name of the encoder you want.
 
-```yml
-bcrypt:
-  algorithm: bcrypt
-```
+{% gist 5300b2a609a80492b657 one.yml %}
 
-```php
-$encoder = $encoderFactory->getEncoder('bcrypt');
-```
+{% gist 5300b2a609a80492b657 two.php %}
 
 ## Creating your own Password Encoder
 
@@ -28,92 +23,27 @@ To create your own password encoder you have to create your own encoder class im
 
 Here's an example Encoder class.
 
-```php
-<?php
-
-namespace Icambridge\Encoder;
-
-use Symfony\Component\Security\Core\Exception\BadCredentialsException;
-use Symfony\Component\Security\Core\Encoder\BasePasswordEncoder
-
-/**
- * A super duper silly password encoder, no one should ever use!
- */
-class SuperDuperSillyEncoder extends BasePasswordEncoder
-{  
-    private $ignorePasswordCase;
-
-    public function encodePassword($raw, $salt)
-    {
-        if ($this->isPasswordTooLong($raw)) {
-            throw new BadCredentialsException('Invalid password.');
-        }
-
-        $rawMd5 = md5($raw);
-        $saltSha = sha1($salt);
-
-        $encodableString = $this->mergePasswordAndSalt($rawmd5, $saltSha);
-        $encodedString = $encodableString . $encodableString[0] . $encodableString[1];
-
-        return $encodedString;
-    }
-
-    public function isPasswordValid($encoded, $raw, $salt)
-    {
-        if ($this->isPasswordTooLong($raw)) {
-            return false;
-        }
-
-        $pass2 = $this->encodePassword($raw, $salt);
-
-        if (!$this->ignorePasswordCase) {
-            return $this->comparePasswords($encoded, $pass2);
-        }
-
-        return $this->comparePasswords(strtolower($encoded), strtolower($pass2));
-    }
-}
-```
+{% gist 5300b2a609a80492b657 three.php %}
 
 Once you have created the class you have to define it in your services container configuration.
 
-```xml
-<service id="encoder.super_duper_silly" class="Icambridge\Encoder\SuperDuperSillyEncoder" />
-```
+{% gist 5300b2a609a80492b657 four.xml %}
 
 Then to have it loaded into the Encoder factory you need to assign it to a user entity in your security.yml file like so.
 
-```yml
-Icambridge\Entity\User:
-    id: encoder.super_duper_silly
-```
+
+{% gist 5300b2a609a80492b657 five.yml %}
 
 ## Password encoder based on the User entity
 
 The EncoderAwareInterface allows you to return the key for the encoder you want for that user.
 
-```php
-<?php
-
-namespace Icambridge\Encoder;
-
-class User implements EncoderAwareInterface
-{
-  public function getEncoderName()
-  {
-    return "bcrypt";
-  }
-}
-```
+{% gist 5300b2a609a80492b657 six.php %}
 
 The key for the encoder is key that was put into your security.yml config. In the below example we have bcrypt available as a key as well as "Icambridge\Entity\InsecureUser".
 
-```yml
-Icambridge\Entity\InsecureUser:
-  algorithm: plaintext
-bcrypt:
-  algorithm: bcrypt
-```
+{% gist 5300b2a609a80492b657 seven.yml %}
+
 ## UserPasswordEncoder
 
 The Symfony\Component\Security\Core\Encoder\UserPasswordEncoder is a class in the encoder namespace which doesn't encode passwords and return them. Instead it takes a user entity and a string and fetches the password encoder for that user entity and then encodes the string using the encoder and sets the password on the user entity. It also has a isPasswordValid functionality to wrap the encoders you pass an User entity and a string and it fetches the encoder and details from the usesr entity and returns if the password given is valid for that user entity.
