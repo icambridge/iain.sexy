@@ -16,9 +16,7 @@ I consider this programming 101. It's a fundamental practice which nearly all go
 
 However sometimes the repetition can be more subtle and you end up having transform data from one format to another repeatedly throughout your system. Like the example below. Every time you want to use the data from getData you have to call unserialize.
 
-```php
-$data = unserialize(getData());
-```
+`$data = unserialize(getData());`
 
 For more info see
 
@@ -107,7 +105,7 @@ For more info see
 
 This isn't exactly an official practice per say. But it seems like such an obvious thing. Using the correct tool for the correct job seems obivous but as people who often break this, how often have you used something other than a bottle opener to open a bottle of beer. This is not just a software developer problem, but I believe to be a really good developer then consistently you will use the correct tool for the correct job.
 
-Some examples of not using the correct tool for the correct job. Putting functions code in a class then just calling those method procedurally. Using automated testing tools to mointor your production web application. Using static code analysisers to run your CI. Using MongoDB to store relational and transactional data.
+Some examples of not using the correct tool for the correct job. Putting functions in a class then just calling those functions procedurally. Using automated testing tools to mointor your production web application. Using static code analysisers to run your CI. Using MongoDB to store relational and transactional data.
 
 ## Round up
 
@@ -239,3 +237,42 @@ Many people think Continous integration is simply running all your tests after e
 Agile in it's many forms it a method of managing the project. You can be a good developer producing good work without doing Agile.
 
 # Round up
+
+So this is where it gets kinda complex and it's mainly just my opinion. However I believe your ability to implement the above techiques, practice, patterns determine how good you actually are.
+
+## Junior
+
+It's my personal opinion that if you don't implement the basics consistently then you are by definition not a good developer. There is one exception to this and that would be junior developers. Since these are things that you have to learn and get used to doing. But if you've been developing for any serious amount of time and you're still not doing these things properly then no matter how advance the other techiques you use I still wouldn't class you as a good developer.
+
+## Middleweight
+
+So if you look at the Intermediate skills and if you do say 3 out of the 6 there consitently and well. Then I would rank you as a  middleweight developer.
+
+If you're a junior developer and are doing these things then I would class you as a good developer.
+
+If you're a senior developer or above and this is where you're at I would consider you a poor developer.
+
+## Senior
+
+So if you do 5 out of the 6 of the intermediate skils well and consitently then I would consider you as a senior developer.
+
+If you're a junior developer and you were doing these I would consider you an amazing developer.
+
+If you're a middleweight developer and you are doing these I would consider you a good developer.
+
+If you're senior developer and you did these I would consider you proficient.
+
+If you're a team lead or above and you weren't doing these I would consider you poor.
+
+
+## Team lead
+
+While I understand team leading is a lot to do with soft skills I still think their should be a high level of techincal knowledge in the basic techincal team lead position. A techincal team lead in my opnion should be able to do 6 out of the 7 imtermediate skills while doing 1-2 of the advance skills.
+
+If you're a senior and below and you reach this then I would consider you a good developer.
+
+## Higher
+
+If you're good at all of the intermediate skills then I would consider you a good developer.
+
+If you're also good at multiple advance skills then I would consider you a great developer.
