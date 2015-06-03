@@ -12,9 +12,9 @@ The fundamentals every programmer should have.
 
 ## DRY - Don't repeat yourself
 
-I consider this programming 101. It's a fundamental practice which nearly all good development practices are based on. It's very simple the aim is never repeat yourself. Easiest time to know if you're breaching this is if you literally copy and past code from one function to another.
+I consider this programming 101. It's a fundamental practice which nearly all good development practices are built upon. It's very simple, the aim is to never repeat yourself. Easiest time to know if you're breaching this is if you literally copying and pasting code from one place to another.
 
-However sometimes the repetition can be more subtle and you end up having transform data from one format to another repeatedly throughout your system. Like the example below. Every time you want to use the data from getData you have to call unserialize.
+However sometimes the repetition can be more subtle. Such an example is you could end up having to transform data from one format to another repeatedly throughout your system. Like the example below. Every time you want to use the data from getData you have to call unserialize.
 
 `$data = unserialize(getData());`
 
