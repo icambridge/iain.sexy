@@ -1,8 +1,8 @@
-In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're going a good job and the other developers are bad. I don't think you can exactly define what is a good developer down to a tea but I think you can have rough benchmarks signs of if you're good or not. These are generally if you follow well defined practices. They're are levels of development practices ranging from the basics (DRY) to advance (CQRS).
+In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're doing a good job and the other developers are bad. I don't think you can exactly define what is a good developer down to a tea but I think you can have rough benchmarks for wether or not you're good or not. These generally are if you follow well defined practices. There are levels of development practices ranging from the basics (DRY) to advance (CQRS).
 
-It's my opinion that you're only as good as the level of practices you follow well. So if you only do intermediate practices you're an intermediate developer. If you do intermediate practices well but mildy-advance practices poorly you're still an intermediate developer.
+It's my opinion that you're only as good as the level of practices that you are follow well. So if you're only do intermediate practices you're an intermediate developer. If you do intermediate practices well but mildy-advance practices poorly you're still an intermediate developer.
 
-I think it's important to say that my definition of well is applying them in the majority of cases. No one is perfect so we obviously make mistakes and write poor code from time to time for various reasons. Also it's important this isn't a 100% guide as there are most likely hundreds of things I'm not thinking of. I'm also an OO PHP developer so a lot these may be related to OO. However I suspect majority of them can also be applied to other programming paradigms.
+I think it's important to say that my definition of well is applying them in the majority of cases. No one is perfect, we obviously make mistakes and write poor code from time to time for various reasons. Also it's important to state this isn't a 100% guide as there are most likely hundreds of things I'm not thinking of or probably even know of. I'm also an OO PHP developer so a lot these may be related to OO. However I suspect majority of them can also be applied to other programming paradigms.
 
 I'm also not saying I do all of these things. I'm just aware they exist and I rank them at a certain level. Some times I don't even think I have a full grasp of the concept. Nor am I making any claims that I'm any good. Like everyone I am still learning and trying to be a good developer. I think understanding our flaws helps with this.
 
@@ -33,13 +33,6 @@ Encapsulation doesn't mean it's all in one class. But in the same place, be that
 The benefits are very simple if you want to know how something works you just look in one place. If you want to change how something works you just make the change in one place.
 
 For more info see
-
-
-## Round up
-TODO move to bottom
-In my opinion these are are things you must do as a developer. Not doing them efficiently means you are a bad developer. Even as a junior developer you should still be doing these things reasonably well after 6 months or so experience.
-
-This is not if you do them all the time, but do them consistently.
 
 # Intermediate
 
@@ -107,9 +100,6 @@ This isn't exactly an official practice per say. But it seems like such an obvio
 
 Some examples of not using the correct tool for the correct job. Putting functions in a class then just calling those functions procedurally. Using automated testing tools to mointor your production web application. Using static code analysisers to run your CI. Using MongoDB to store relational and transactional data.
 
-## Round up
-
-While before with the basics it was all or nothing. I think with this level of stuff you have various levels of proficiently depending on how many you actually do.
 
 # Advance
 
