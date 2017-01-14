@@ -7,6 +7,7 @@ categories: [development]
 ---
 A very simple breakdown of how the password encoding works with Symfony 2.
 
+<!-- more -->
 ## Encoder factory
 
 The encoder factory is where you get your password encoders from. You pass in a User entity and it returns an Encoder. Encoders are created from the encoder configs and stored within the factory, there is only a single instance of the encoder unless you clone it outside of the factory. The encoder configs are passed to the factory upon creation. Once a factory is created there is no way of adding new encoders as there is no add method and the internal class variable holding these is private. The encoder config array is generated from the encoders assigned to a user entity. If the encoder is not used by anything then Symfony just doesn't load it. The config array is built using the key defined in the security.yml file as the key for the config array. So if you just define them by entity then your array config will just be class names. Once the encoder has been called that config is overridden by the encoder instance.
