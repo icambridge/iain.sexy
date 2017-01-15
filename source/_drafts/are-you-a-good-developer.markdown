@@ -1,8 +1,8 @@
 In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're doing a good job and the other developers are bad. I don't think you can exactly define what is a good developer down to a tea but I think you can have rough benchmarks for wether or not you're good or not. These generally are if you follow well defined practices. There are levels of development practices ranging from the basics (DRY) to advance (CQRS).
 
-It's my opinion that you're only as good as the level of practices that you are follow well. So if you're only do intermediate practices you're an intermediate developer. If you do intermediate practices well but mildy-advance practices poorly you're still an intermediate developer.
+It's my opinion that you're only as good as the level of practices that you are able to follow well. So if you're only able to do intermediate practices, then you're an intermediate developer. If you do intermediate practices well but can't implement advance practices properly you're still an intermediate developer.
 
-I think it's important to say that my definition of well is applying them in the majority of cases. No one is perfect, we obviously make mistakes and write poor code from time to time for various reasons. Also it's important to state this isn't a 100% guide as there are most likely hundreds of things I'm not thinking of or probably even know of. I'm also an OO PHP developer so a lot these may be related to OO. However I suspect majority of them can also be applied to other programming paradigms.
+I think it's important to say that my definition of well, is applying them in the majority of cases. No one is perfect, we obviously make mistakes and write poor code from time to time for various reasons. Also it's important to state this isn't a 100% guide as there are most likely hundreds of things I'm not thinking of or probably even know of. I'm also an OO PHP developer so a lot these may be related to OO. However I suspect majority of them can also be applied to other programming paradigms.
 
 I'm also not saying I do all of these things. I'm just aware they exist and I rank them at a certain level. Some times I don't even think I have a full grasp of the concept. Nor am I making any claims that I'm any good. Like everyone I am still learning and trying to be a good developer. I think understanding our flaws helps with this.
 
@@ -36,13 +36,15 @@ For more info see
 
 # Intermediate
 
-TODO
+These are the things you're generally asked/asking about in interviews for experienced developers.
 
 ## Single responsibility
 
-The basics of Single responsibility it each object so only be responisble for one thing.
+The basics of Single responsibility it each object so only be responsible for one thing.
 
-For example you should never have a class that is respo nsible for inserting data in to the database and for making HTTP requests to AWS to create new server instances. So you would have a class that would do the insertion into the database and then another class to create new AWS instances.
+For example you should never have a class that is responsible for inserting data in to the database and for making HTTP requests to AWS to create new server instances. So you would have a class that would do the insertion into the database and then another class to create new AWS instances.
+
+Another thing about Single responsibility is that all things that change for the same reason should be grouped together. So if you're writing and reading from the database these will always change at the same time, so you wouldn't have a class for writing and one for reading.
 
 A quick guide to know if you're breaching Single responsibility, you ask yourself what does this class do and if you use the word "and" you're probably breaching single responsibility.
 
@@ -66,11 +68,13 @@ For example if I change the database class for another the application should no
 
 For more info see
 
-## Interface segeration
+## Interface segregation
 
-Interface segaration is simply just Single responsibility but for interfaces. The basics of it is no object should be forced to implement a method that it doesn't need.
+Interface segregation is simply just Single responsibility but for interfaces. The basics of it is no object should be forced to implement a method that it doesn't need.
 
-For example a translator class can imp
+For example a translator class can implement a catalog interface and a translation interface. However you can build translation classes that don't need to provide the translation catalog to others.
+
+Some quick ways to know it's being breached, if classes implementing it have empty methods. As well as if you're creating new interfaces that merge two other interfaces into one.
 
 For more info see
 
@@ -78,7 +82,7 @@ For more info see
 
 Not to be confused with Dependency injection, which Dependency Inversion helps with.
 
-Dependency Inversion is when you make your class coupled to an abstract/compsite instead of the concrete version. So your class never knows about the existance of the actual implement that it'll use. While the implementation class never knows about the existence of anything that uses it.
+Dependency Inversion is when you make your class coupled to an abstract/composite instead of the concrete version. So your class never knows about the existence of the actual implement that it'll use. While the implementation class never knows about the existence of anything that uses it.
 
 This makes Dependency injecting and object replacement really simple.
 
@@ -96,26 +100,27 @@ For more info see
 
 ## Correct tool for correct job
 
-This isn't exactly an official practice per say. But it seems like such an obvious thing. Using the correct tool for the correct job seems obivous but as people who often break this, how often have you used something other than a bottle opener to open a bottle of beer. This is not just a software developer problem, but I believe to be a really good developer then consistently you will use the correct tool for the correct job.
+This isn't exactly an official practice per say. But it seems like such an obvious thing. Using the correct tool for the correct job seems obvious, but it's quite often breached. How often have you used something other than a bottle opener to open a bottle of beer. This is not just a software developer problem, but I believe to be a really good developer then consistently you will use the correct tool for the correct job.
 
-Some examples of not using the correct tool for the correct job. Putting functions in a class then just calling those functions procedurally. Using automated testing tools to mointor your production web application. Using static code analysisers to run your CI. Using MongoDB to store relational and transactional data.
-
+Some examples of not using the correct tool for the correct job. Putting functions in a class then just calling those functions procedurally. Using automated testing tools to monitor your production web application. Using static code analysers to run your CI. Using MongoDB to store relational and transactional data.
 
 # Advance
 
 At this level a lot of these things seem to go hand in hand in my opinion.
 
-## Law of demeter
+## Law of Demeter
 
 This is very simple your code only ever talks to/uses objects it knows exists directly.
 
-For example if you inject a query object into a method that method should then never access the query object to get to a parameter bag object. Instead what you do is create a method on the query object that calls the parameter bag object and returns the data you want. The benefits of this means you can refactor eaiser since you can clearly see where code is used and where it isn't. So if you were to change how the parameter bag works you only have to change it in the query class and not in every place the query class is used to pass the parameter bag.
+For example if you inject a request object into a method that method should then never access the request object to get to a parameter bag object. Instead what you do is create a method on the request object that calls the parameter bag object and returns the data you want. The benefits of this means you can refactor easier since you can clearly see where code is used and where it isn't. So if you were to change how the parameter bag works you only have to change it in the request class and not in every place the request class is used to pass the parameter bag.
+
+This also makes unit testing a lot easier since you don't need to mock the request class and then mock the parameter bag. You just mock the request class.
 
 For more info see
 
-## CQRS - Command query responsibility segeration
+## CQRS - Command query responsibility segregation
 
-Command query read segeration is a principal at the heart of is about seperating your reads from your writes. In my opinion you can apply this on several levels. For almost everything I think a on method level applys. But there is also on class level. And then there is system/service level which is actually the proper CQRS.
+Command query read segregation is a principal at the heart of is about separating your reads from your writes. In my opinion you can apply this on several levels. For almost everything I think a on method level applies. But there is also on class level. And then there is system/service level which is actually the proper CQRS.
 
 On the method level no method that does a read should also be doing a write. But on an class level you no class that does reads should be doing writes.
 
@@ -125,21 +130,21 @@ For more info see
 
 ## Domain modeling
 
-In simplist form this is seperating the Domain/business logic away from the rest of the code and understanding what is part of the domain and what is actual implementation.
+In simplest form this is separating the Domain/business logic away from the rest of the code and understanding what is part of the domain and what is actual implementation.
 
 ## Domain Driven Design
 
 This is a rather complex topic and this little section will not give it any justice.
 
-Doing DDD involes a lot more than just domain modelling. It means commicating with the business team to find the correct model for the domain and applying it. In my opinion the key to DDD is ubiqutous language. In which you use the same terminogly as the the business people and then use that terminogly in the code.
+Doing DDD involves a lot more than just domain modeling. It means communicating with the business team to find the correct model for the domain and applying it. In my opinion the key to DDD is ubiquitous language. In which you use the same terminology as the the business people and then use that terminology in the code.
 
 For more info see
 
 ## Hexagonal Architecture
 
-Hexagonal Architecture is simply isolating your domain model from your application layer and seperating your application layer from third party items.
+Hexagonal Architecture is simply isolating your domain model from your application layer and separating your application layer from third party items.
 
-So you have your domain model. Which should remain seperate from everything and coupled to nothing. Next you have your application layer which is coupled to your domain model. At which point you have your outlayer which uses the application layer and third party items. Such as databases and APIs.
+So you have your domain model. Which should remain separate from everything and coupled to nothing. Next you have your application layer which is coupled to your domain model. At which point you have your outer layer which uses the application layer and third party items. Such as databases and APIs.
 
 This allows you to change third party items without having to worry about your domain model or your how your application works.
 
@@ -147,7 +152,7 @@ For more info see
 
 ## BDD
 
-Behavior driven development is in it's simplist form talking with the business team in a language they understand to workout what actually needs built.
+Behavior driven development is in it's simplest form talking with the business team in a language they understand to workout what actually needs built.
 
 This again can get really complex and there are many different ways of doing BDD and many different practices.
 
@@ -161,24 +166,23 @@ This while it seems like a simple concept I think this is more about realising t
 
 For more info see
 
-## Teir Architecture
+## Tier Architecture
 
-Teir Architecture is simply splitting out the responsibility of system responsibility on different layers of systems. So you start off with a web system layer which has no access to the database. Any time it needs to fetch something from the database it then makes a request to the database level which has the ability to do reads. Any time it needs to do a write it then makes a request to the write layer which then does writes.
+Tier Architecture is simply splitting out the responsibility of system responsibility on different layers of systems. So you start off with a web system layer which has no access to the database. Any time it needs to fetch something from the database it then makes a request to the database level which has the ability to do reads. Any time it needs to do a write it then makes a request to the write layer which then does writes.
 
 For more info see
 
-## Service Orienated Architecture
+## Service Oriented Architecture
 
 This is when you build applications to handle specific jobs. Each service only knows about what it needs to do and is decoupled from other services.
 
-So for example if your application needs to send communication you could have a communication service that all it did was send communications. It didn't know about any of the logic about why the communication needs to be sent just that it needs to be send and does the sending.
+So for example if your application needs to send communication you could have a communication service that all it did was send communications. It doesn't know about any of the logic about why the communication needs to be sent just that it needs to be send and does the sending. While the application doesn't need to know about how the communication is being sent, just that it will be sent.
 
-For more info see
+Also if you use queues this can allow for services to go down and come back up while not affecting the speed of the web site. It also allows for you to scale out services as needed, so if you start out small you may only need to send a few communications but as you grow larger the number of communications goes up. This may not grow as much as your web traffic so you don't need to scale it at the same pace.
 
+## Correct Terminology
 
-## Correct terminogly
-
-While this may sound a bit snobby we generally have a habit of using the wrong terminolgy when talking about thinks. While you may think what does it matter what it's called? Well it doesn't but it does matter if you're able to correctly define to others what you're doing or thinking about doing. For example if you say blackbox testing sucks when what you mean is System level testing sucks, it can lead to people like me pointing out that block box testing is very efficent way of testing.
+While this may sound a bit snobby we generally have a habit of using the wrong terminology when talking about thinks. While you may think what does it matter what it's called? Well it doesn't but it does matter if you're able to correctly define to others what you're doing or thinking about doing. For example if you say blackbox testing sucks when what you mean is System level testing sucks, it can lead to people like me pointing out that block box testing is very efficient way of testing.
 
 One way I think of it is, if you don't know what you're doing what are you doing?
 
@@ -216,11 +220,11 @@ I know some people who assume if you don't pair program you're not as good as th
 
 ## Code Kata
 
-While I think doing code katas is a lot of fun and a wise move. I just don't think that not doing it removes you understanding and ability to implement any of the best practices in development. I think it'll help you learn and improve those abilities.
+While I think doing code katas is a lot of fun and a wise move. I just don't think that not doing it removes you understanding and ability to implement any of the best practices in development.
 
-## Continous Integration
+## Continuous Integration
 
-Many people think Continous integration is simply running all your tests after each commit. Or even just using Jenkins before you merge so "master" is deployable. However Continous integration is a practice of everyone working on the same branch and all commiting to the same branch. So everyones work is integrated continously. With the minmum of if you're using branches that it's merged into master at the end of the day. This in my opinion makes this a team discipline and not a single developers discipline.
+Many people think Continuous integration is simply running all your tests after each commit. Or even just using Jenkins before you merge so "master" is deployable. However Continuous integration is a practice of everyone working on the same branch and all committing to the same branch. So everyones work is integrated continuously. With the minimum of if you're using branches that it's merged into master at the end of the day. This in my opinion makes this a team discipline and not a single developers discipline.
 
 ## Agile
 
@@ -228,15 +232,15 @@ Agile in it's many forms it a method of managing the project. You can be a good 
 
 # Round up
 
-So this is where it gets kinda complex and it's mainly just my opinion. However I believe your ability to implement the above techiques, practice, patterns determine how good you actually are.
+So this is where it gets kinda complex and it's mainly just my opinion. However I believe your ability to implement the above techniques, practice, patterns determine how good you actually are.
 
 ## Junior
 
-It's my personal opinion that if you don't implement the basics consistently then you are by definition not a good developer. There is one exception to this and that would be junior developers. Since these are things that you have to learn and get used to doing. But if you've been developing for any serious amount of time and you're still not doing these things properly then no matter how advance the other techiques you use I still wouldn't class you as a good developer.
+It's my personal opinion that if you don't implement the basics consistently then you are by definition not a good developer. There is one exception to this and that would be junior developers. Since these are things that you have to learn and get used to doing. But if you've been developing for any serious amount of time and you're still not doing these things properly then no matter how advance the other techniques you use I still wouldn't class you as a good developer.
 
 ## Middleweight
 
-So if you look at the Intermediate skills and if you do say 3 out of the 6 there consitently and well. Then I would rank you as a  middleweight developer.
+So if you look at the Intermediate skills and if you do say 3 out of the 6 there consistently and well. Then I would rank you as a middleweight developer.
 
 If you're a junior developer and are doing these things then I would class you as a good developer.
 
@@ -244,20 +248,18 @@ If you're a senior developer or above and this is where you're at I would consid
 
 ## Senior
 
-So if you do 5 out of the 6 of the intermediate skils well and consitently then I would consider you as a senior developer.
+So if you do 5 out of the 6 of the intermediate skills well and consistently then I would consider you as a senior developer.
 
 If you're a junior developer and you were doing these I would consider you an amazing developer.
 
 If you're a middleweight developer and you are doing these I would consider you a good developer.
-
-If you're senior developer and you did these I would consider you proficient.
 
 If you're a team lead or above and you weren't doing these I would consider you poor.
 
 
 ## Team lead
 
-While I understand team leading is a lot to do with soft skills I still think their should be a high level of techincal knowledge in the basic techincal team lead position. A techincal team lead in my opnion should be able to do 6 out of the 7 imtermediate skills while doing 1-2 of the advance skills.
+While I understand team leading is a lot to do with soft skills I still think their should be a high level of technical knowledge in the basic technical team lead position. A technical team lead in my opinion should be able to do 6 out of the 7 intermediate skills while doing 1-2 of the advance skills.
 
 If you're a senior and below and you reach this then I would consider you a good developer.
 
