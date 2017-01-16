@@ -45,7 +45,7 @@ These are the things you're generally asked/asking about in interviews for exper
 
 ## Single responsibility
 
-The basics of Single responsibility it each object so only be responsible for one thing.
+The basics of Single responsibility is that each object so only be responsible for one thing.
 
 For example you should never have a class that is responsible for inserting data in to the database and for making HTTP requests to AWS to create new server instances. So you would have a class that would do the insertion into the database and then another class to create new AWS instances.
 
