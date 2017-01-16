@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Are you a good developer"
-date: 2017-01-15 12:23
+date: 2017-01-16 12:23
 comments: true
 categories: [development]
 ---
