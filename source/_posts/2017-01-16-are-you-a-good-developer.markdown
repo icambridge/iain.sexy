@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Are you a good developer"
+date: 2017-01-15 12:23
+comments: true
+categories: [development]
+---
 In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're doing a good job and the other developers are bad. I don't think you can exactly define what is a good developer down to a tea but I think you can have rough benchmarks for wether or not you're good or not. These generally are if you follow well defined practices. There are levels of development practices ranging from the basics (DRY) to advance (CQRS).
 
 It's my opinion that you're only as good as the level of practices that you are able to follow well. So if you're only able to do intermediate practices, then you're an intermediate developer. If you do intermediate practices well but can't implement advance practices properly you're still an intermediate developer.
@@ -18,8 +25,6 @@ However sometimes the repetition can be more subtle. Such an example is you coul
 
 `$data = unserialize(getData());`
 
-For more info see
-
 ## Encapsulation
 
 Encapsulation is when you round up stuff that are related and put them together. I feel this is very important thing to do.
@@ -31,8 +36,6 @@ Another example is the the example of breaching DRY. The data was stored in a sp
 Encapsulation doesn't mean it's all in one class. But in the same place, be that module, class, namespace. For example you wouldn't want to be doing Delivery logic in your Invoice module.
 
 The benefits are very simple if you want to know how something works you just look in one place. If you want to change how something works you just make the change in one place.
-
-For more info see
 
 # Intermediate
 
@@ -48,8 +51,6 @@ Another thing about Single responsibility is that all things that change for the
 
 A quick guide to know if you're breaching Single responsibility, you ask yourself what does this class do and if you use the word "and" you're probably breaching single responsibility.
 
-For more info see
-
 ## Open/close principal
 
 The open/close principal means your class is open to extension but closed to modification. The basics of it is I should be able to extend a class to add extra functionality. I however should not be able to change how it works.
@@ -58,15 +59,11 @@ For example an Order entity class. I should be able to extend it so I can descri
 
 Another example I should be able to extend a sorting class so it can sort other kinds of things but I shouldn't be able to change it from a sorting class to first item found class.
 
-For more info see
-
 ## Liskov's object replacement
 
 The object replacement principal is that I should be able to replace any object with one of the same type and not change the behavior of the application.
 
 For example if I change the database class for another the application should not go from saving data about servers to managing the AWS instances.
-
-For more info see
 
 ## Interface segregation
 
@@ -76,8 +73,6 @@ For example a translator class can implement a catalog interface and a translati
 
 Some quick ways to know it's being breached, if classes implementing it have empty methods. As well as if you're creating new interfaces that merge two other interfaces into one.
 
-For more info see
-
 ## Dependency Inversion
 
 Not to be confused with Dependency injection, which Dependency Inversion helps with.
@@ -86,8 +81,6 @@ Dependency Inversion is when you make your class coupled to an abstract/composit
 
 This makes Dependency injecting and object replacement really simple.
 
-For more info see
-
 ## Automated Testing
 
 This is where you use write unit/integration/system tests so you can test you entire code easily.
@@ -95,8 +88,6 @@ This is where you use write unit/integration/system tests so you can test you en
 It's important to note this isn't just doing TDD, but any testing. While I fully believe that TDD is the best way to test and write code. I don't believe it's the only way or that by writing tests after you wrote the code makes you any less of a developer.
 
 If you don't have tests and you change something, how can you be sure it works? Simply you don't. Even when you don't have tests you still test your code, you just do it by hand. Which isn't as anywhere near efficient as having it done by code.
-
-For more info see
 
 ## Correct tool for correct job
 
@@ -116,8 +107,6 @@ For example if you inject a request object into a method that method should then
 
 This also makes unit testing a lot easier since you don't need to mock the request class and then mock the parameter bag. You just mock the request class.
 
-For more info see
-
 ## CQRS - Command query responsibility segregation
 
 Command query read segregation is a principal at the heart of is about separating your reads from your writes. In my opinion you can apply this on several levels. For almost everything I think a on method level applies. But there is also on class level. And then there is system/service level which is actually the proper CQRS.
@@ -125,8 +114,6 @@ Command query read segregation is a principal at the heart of is about separatin
 On the method level no method that does a read should also be doing a write. But on an class level you no class that does reads should be doing writes.
 
 But for the proper definition of CQRS, a command is something that does a write. A query is something that does a read. When doing commands to the system you should use a different pathway/service than if you were just querying it.
-
-For more info see
 
 ## Domain modeling
 
@@ -138,7 +125,7 @@ This is a rather complex topic and this little section will not give it any just
 
 Doing DDD involves a lot more than just domain modeling. It means communicating with the business team to find the correct model for the domain and applying it. In my opinion the key to DDD is ubiquitous language. In which you use the same terminology as the the business people and then use that terminology in the code.
 
-For more info see
+[For more info see](https://en.wikipedia.org/wiki/Domain-driven_design)
 
 ## Hexagonal Architecture
 
@@ -148,15 +135,13 @@ So you have your domain model. Which should remain separate from everything and 
 
 This allows you to change third party items without having to worry about your domain model or your how your application works.
 
-For more info see
-
 ## BDD
 
 Behavior driven development is in it's simplest form talking with the business team in a language they understand to workout what actually needs built.
 
 This again can get really complex and there are many different ways of doing BDD and many different practices.
 
-For more info see
+[For more info see](https://dannorth.net/introducing-bdd/)
 
 ## YAGNI - You aren't gonna need it
 
@@ -164,13 +149,9 @@ YAGNI comes originally from Xtreme Programming and it's a concept of don't build
 
 This while it seems like a simple concept I think this is more about realising that YAGNI which I think can be quite hard to do at times.
 
-For more info see
-
 ## Tier Architecture
 
 Tier Architecture is simply splitting out the responsibility of system responsibility on different layers of systems. So you start off with a web system layer which has no access to the database. Any time it needs to fetch something from the database it then makes a request to the database level which has the ability to do reads. Any time it needs to do a write it then makes a request to the write layer which then does writes.
-
-For more info see
 
 ## Service Oriented Architecture
 
