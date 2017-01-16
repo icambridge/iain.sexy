@@ -7,6 +7,8 @@ categories: [development]
 ---
 In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're doing a good job and the other developers are bad. I don't think you can exactly define what is a good developer down to a tea but I think you can have rough benchmarks for wether or not you're good or not. These generally are if you follow well defined practices. There are levels of development practices ranging from the basics (DRY) to advance (CQRS).
 
+<!-- more -->
+
 It's my opinion that you're only as good as the level of practices that you are able to follow well. So if you're only able to do intermediate practices, then you're an intermediate developer. If you do intermediate practices well but can't implement advance practices properly you're still an intermediate developer.
 
 I think it's important to say that my definition of well, is applying them in the majority of cases. No one is perfect, we obviously make mistakes and write poor code from time to time for various reasons. Also it's important to state this isn't a 100% guide as there are most likely hundreds of things I'm not thinking of or probably even know of. I'm also an OO PHP developer so a lot these may be related to OO. However I suspect majority of them can also be applied to other programming paradigms.
