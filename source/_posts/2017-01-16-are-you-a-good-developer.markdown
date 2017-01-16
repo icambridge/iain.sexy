@@ -5,7 +5,7 @@ date: 2017-01-16 12:23
 comments: true
 categories: [development]
 ---
-In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're doing a good job and the other developers are bad. I don't think you can exactly define what is a good developer down to a tea but I think you can have rough benchmarks for wether or not you're good or not. These generally are if you follow well defined practices. There are levels of development practices ranging from the basics (DRY) to advance (CQRS).
+In development we constantly bemoan bad developers. But what I've noticed is everyone generally thinks they're doing a good job and the other developers are bad. I don't think you can exactly define what is  a good developer down to a tee but I think you can have rough benchmarks for whether or not you're good. These generally are if you follow well defined practices. There are levels of development practices ranging from the basics (DRY) to advance (CQRS).
 
 <!-- more -->
 
